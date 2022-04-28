@@ -41,7 +41,7 @@ public class BikeController {
 
 
     @PostMapping()
-    public ResponseEntity<Bike> saveUser(
+    public ResponseEntity<Bike> save(
             @RequestBody Bike user
     ){
        Bike bikeNew  = bikeService.save(user);

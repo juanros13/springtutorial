@@ -41,10 +41,10 @@ public class CarController {
 
 
     @PostMapping()
-    public ResponseEntity<Car> saveUser(
-            @RequestBody Car user
+    public ResponseEntity<Car> save(
+            @RequestBody Car car
     ){
-       Car carNew  = carService.save(user);
+       Car carNew  = carService.save(car);
 
        return ResponseEntity.ok(carNew);
 
