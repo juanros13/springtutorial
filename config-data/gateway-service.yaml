@@ -38,8 +38,8 @@ spring:
       client:
         provider:
           keycloack:
-            authorization-uri: http://127.0.0.1:8180/realms/tutorial-realm/protocol/openid-connect/auth
-            userinfo-uri: http://127.0.0.1:8180/realms/tutorial-realm/protocol/openid-connect/userinfo
+            authorization-uri: http://127.0.0.1:8180/auth/realms/tutorial-realm/protocol/openid-connect/auth
+            userinfo-uri: http://127.0.0.1:8180/auth/realms/tutorial-realm/protocol/openid-connect/token
             user-name-arttribute: preferred_username
             token-uri: http://127.0.0.1:8180/realms/tutorial-realm/protocol/openid-connect/token
         registration:
