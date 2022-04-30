@@ -12,6 +12,8 @@ eureka:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -21,6 +23,8 @@ spring:
           uri: lb://user-service
           predicates:
             - Path=/user/**
+          filters:
+            - RemoveRequestHeader=Cookie
         - id: car-service
           uri: lb://car-service
           predicates:
@@ -29,3 +33,19 @@ spring:
           uri: lb://bike-service
           predicates:
             - Path=/bike/**
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloack:
+            authorization-uri: http://127.0.0.1:8180/realms/tutorial-realm/protocol/openid-connect/auth
+            userinfo-uri: http://127.0.0.1:8180/realms/tutorial-realm/protocol/openid-connect/userinfo
+            user-name-arttribute: preferred_username
+            token-uri: http://127.0.0.1:8180/realms/tutorial-realm/protocol/openid-connect/token
+        registration:
+          tutorial-client: 
+            provider: keycloack
+            client-id: tutorial-client
+            client-secret: a7ecegrSlQ6zBDh184uMZVwz2jWQtwgW
+            authorization-grant-type: authorization_code
+            redirect-uri: "{base-url}/login/oauth2/client/code/tutorial-client"
