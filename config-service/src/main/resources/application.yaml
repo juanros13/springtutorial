@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          default-label: zipkin-sleuth
+          default-label: keycloack
           uri: https://github.com/juanros13/springtutorial
           search-paths: config-data
   application:
